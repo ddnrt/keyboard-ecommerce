@@ -1,12 +1,12 @@
 <template>
     <div
-        class="w-fit rounded-md"
+        class="w-fit rounded-md ease-in duration-200 hover:ring-[#e5e7eb]"
         :class="{
-            'bg-white text-black' : isPrimary,
-            'bg-black border border-white' : isSecondary,
-            '' : isMain }"
+            'bg-white text-black hover:ring-2' : isPrimary,
+            'border border-white hover:bg-black hover:ring-2' : isSecondary,
+            'bg-black btn_special' : isSpecial }"
     >
-        <RouterLink :to="`/` + url" class="block h-full py-3 px-2">
+        <RouterLink :to="`/` + url" class="block h-full py-4 px-5">
             <slot></slot>
         </RouterLink>
     </div>
@@ -31,5 +31,11 @@ const props = defineProps({
 <style scoped>
     a {
         font-weight: 600;
+    }
+    .btn_special {
+        filter: drop-shadow(2px 2px 0 #34d399);
+    }
+    .btn_special:hover {
+        filter: drop-shadow(3px 3px 0 #34d399);
     }
 </style>
