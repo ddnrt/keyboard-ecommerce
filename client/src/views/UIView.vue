@@ -12,10 +12,18 @@
       <TheButton url="2" :isSecondary="true">Try out keyboards</TheButton>
       <br>
       <TheButton url="3" :isSpecial="true">Build Keyboard</TheButton>
+      <br>
+      <div>
+        <h2>{{ count }}</h2>
+        <TheCounter v-model:count="count" />  
+      </div>
     </main>
   </template>
   <script setup>
+  import {ref} from 'vue'
   import TheBlock from "../components/UI/TheBlock.vue"
   import TheButton from "../components/UI/TheButton.vue"
+  import TheCounter from "../components/UI/TheCounter.vue"
+  const count = ref(1)
   </script>
   
