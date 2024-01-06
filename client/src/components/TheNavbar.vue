@@ -1,10 +1,3 @@
-<script setup>
-import {RouterLink} from 'vue-router'
-import CartIcon from './icons/IconCart.vue'
-import SearchIcon from './icons/IconSearch.vue'
-import ProfileIcon from './icons/IconProfile.vue'
-</script>
-
 <template>
     <div class="md:h-20 bg-black">
         <nav class="flex justify-between mx-40 h-full items-center">
@@ -26,14 +19,14 @@ import ProfileIcon from './icons/IconProfile.vue'
                         </RouterLink>
                     </li>
                     <li>
-                        <RouterLink to="/catalog">
+                        <DropdownMenu :list="keyaboardList" :image="keyaboardImage">
                             Клавиатуры
-                        </RouterLink>
+                        </DropdownMenu>
                     </li>
                     <li>
-                        <RouterLink to="/catalog">
+                        <DropdownMenu :list="componentsList" :image="componentsImage">
                             Компоненты
-                        </RouterLink>
+                        </DropdownMenu>
                     </li>
                     <li>
                         <RouterLink to="/catalog">
@@ -65,3 +58,85 @@ import ProfileIcon from './icons/IconProfile.vue'
         </nav>
     </div>
 </template>
+<script setup>
+import {RouterLink} from 'vue-router'
+import CartIcon from './icons/IconCart.vue'
+import SearchIcon from './icons/IconSearch.vue'
+import ProfileIcon from './icons/IconProfile.vue'
+import DropdownMenu from '@/components/UI/DropdownMenu.vue'
+
+const keyaboardList = [
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Featured Keyboards",
+        description: "Favourites currently in-stock",
+        url: "/"
+    }
+  ]
+  const keyaboardImage = {
+    title: "Starter Series",
+    name: "https://cdn.shopify.com/s/files/1/0521/7429/1118/files/starterseries-section-head_542x304.png?v=1649339241",
+    path: "/keyboards/starter"
+  }
+  const componentsList = [
+  {
+        title: "Switches",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Stabilisers",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Keycaps",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Barebones Kits",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Coiled Cables",
+        description: "Favourites currently in-stock",
+        url: "/"
+    },
+    {
+        title: "Accessories and Tools",
+        description: "Favourites currently in-stock",
+        url: "/"
+    }
+  ]
+  const componentsImage = {
+    title: "Shoko Keycaps",
+    name: "https://landingpad.shop/cdn/shop/products/shoko.jpg",
+    path: "/components/keycaps/shoko"
+  }
+</script>

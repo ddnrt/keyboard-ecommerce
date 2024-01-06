@@ -2,13 +2,13 @@
     <div>
         <button @click="isOpen = !isOpen" class="flex items-center gap-2">
             <slot></slot>
-            <AccordionIcon class="w-3 h-3" />
+            <DropdownIcon class="w-3 h-3" />
         </button>
     </div>
     <Transition>
         <div 
             v-if="isOpen"
-            class="px-5 py-5 bg-black w-1/2 flex h-[17rem] gap-6 border border-white/60 rounded-md" 
+            class="absolute mt-7 translate-x-[-33%] px-5 py-5 bg-black w-1/2 flex h-[17rem] gap-6 border border-white/60 rounded-md" 
         >
             <ul class="w-2/3 grid grid-rows-3 grid-cols-2 gap-3">
                 <li v-for="item in list.slice(0, 6)" class="my-2 mx-1">
@@ -25,14 +25,14 @@
                                 <div class="text-xl font-semibold text-white">{{ image.title }}</div>
                         </div>
                     </div>
-                    <img :src="image.name" class="h-full object-cover rounded-md">
+                    <img :src="image.name" class="h-full w-full object-cover rounded-md">
                 </RouterLink>
             </div>
         </div>
     </Transition>
 </template>
 <script setup>
-import AccordionIcon from '../icons/IconAccordion.vue'
+import DropdownIcon from '../icons/IconDropdownMenu.vue'
 import { RouterLink } from 'vue-router';
 import {ref} from 'vue';
 const isOpen = ref(false)
